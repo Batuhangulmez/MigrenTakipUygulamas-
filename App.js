@@ -3,20 +3,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import StackNavigator from './StackNavigator';
+import { firebaseConfig } from './firebase-config';
+import { initializeApp } from 'firebase/app';
 
+initializeApp(firebaseConfig);
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <StackNavigator />
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
