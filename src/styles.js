@@ -108,5 +108,17 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         margin: 5,
+    },
+    triggeredsAreaText: {
+        textAlign: 'center',
+        color: 'white',
+        margin: 5,
+        fontSize: 24,
+    },
+    image: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        marginBottom: 5,
     }
 })
