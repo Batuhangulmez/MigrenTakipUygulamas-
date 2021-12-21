@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
     },
     wrapper: {
         margin: width * 0.05,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     wrapperInput: {
         flexDirection: 'row',
@@ -56,6 +58,19 @@ export const styles = StyleSheet.create({
         marginRight: 18,
     },
     card: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: CardColor,
+        borderRadius: 25,
+        paddingVertical: 24,
+        paddingHorizontal: 20,
+        marginVertical: 8,
+    },
+    cardTriggered: {
+        maxWidth: 395,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: CardColor,
         borderRadius: 25,
@@ -69,6 +84,7 @@ export const styles = StyleSheet.create({
         marginVertical: 10,
     },
     subHeading: {
+        textAlign: 'center',
         fontSize: 24,
         color: '#96A7AF',
         marginVertical: 5,
@@ -82,5 +98,15 @@ export const styles = StyleSheet.create({
         height: 200,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    triggereds: {
+        marginHorizontal: 5,
+        padding: 5,
+        width: 100,
+    },
+    triggeredsText: {
+        textAlign: 'center',
+        color: 'white',
+        margin: 5,
     }
 })

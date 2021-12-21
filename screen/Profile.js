@@ -13,10 +13,6 @@ const Profile = ({ route }) => {
     const auth = getAuth();
     const user = auth.currentUser;
 
-    const data = {
-        name: 'batuhan',
-        id: '1',
-    }
 
     const SignOut = () => {
 
@@ -28,7 +24,9 @@ const Profile = ({ route }) => {
     }
 
 
-
+    const PainNavigation = () => {
+        navigation.navigate('Pain')
+    }
 
 
     return (
@@ -36,7 +34,7 @@ const Profile = ({ route }) => {
 
 
             <View style={styles.wrapper}>
-                <Text style={styles.heading}>Selam {user.displayName}</Text>
+                <Text style={styles.heading}>Selam {user.uid} </Text>
                 <View style={styles.card}>
                     <Text style={styles.subHeading}>Migrensiz Geçirdiğin Süre</Text>
                     <View style={styles.MigrenDays}>
@@ -57,7 +55,7 @@ const Profile = ({ route }) => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.yellowButton}
-                    onPress={SignOut}
+                    onPress={PainNavigation}
                 >
                     <Text style={{ fontSize: 16, color: '#FFC542' }}>Migren Atağını Ekle</Text>
                 </TouchableOpacity>

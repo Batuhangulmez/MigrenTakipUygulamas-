@@ -42,7 +42,7 @@ const Login = ({ route }) => {
                 console.log('sign in')
                 const user = userCredential.user;
                 console.log(user)
-                navigation.navigate('HomePage');
+                navigation.navigate('HomePage', user);
             })
             .catch(error => {
                 console.log(error)

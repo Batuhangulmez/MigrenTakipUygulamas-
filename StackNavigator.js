@@ -3,6 +3,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Login from "./screen/Login"
 import SignUp from "./screen/SignUp"
 import Profile from './screen/Profile';
+import Pain1 from './screen/Pain/Pain1'
+import Pain2 from './screen/Pain/Pain2'
+import Pain3 from './screen/Pain/Pain3'
+import Pain4 from './screen/Pain/Pain4'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'react-native-elements'
 import Calender from './screen/Calender';
@@ -31,8 +35,8 @@ const Stack = createNativeStackNavigator();
 const HomePage = ({ route }) => {
 
 
-    return (
 
+    return (
 
         <Tab.Navigator screenOptions={{
             headerShown: false,
@@ -43,8 +47,7 @@ const HomePage = ({ route }) => {
                 borderTopLeftRadius: 25,
                 height: 85,
                 borderTopWidth: 0,
-
-            }
+            },
         }} >
             <Tab.Screen name="Profile" component={Profile} options={{
                 tabBarActiveTintColor: 'white',
@@ -82,7 +85,24 @@ const HomePage = ({ route }) => {
     );
 }
 
+const Pain = ({ route }) => {
+    return (
 
+        <Stack.Navigator initialRouteName='Pain1' screenOptions={{
+            headerStyle: {
+                backgroundColor: '#30444E',
+                borderBottomRightRadius: 25,
+                borderBottomLeftRadius: 25,
+            },
+            statusBarHidden: true
+        }}>
+            <Stack.Screen name="Pain1" component={Pain1} />
+            <Stack.Screen name="Pain2" component={Pain2} />
+            <Stack.Screen name="Pain3" component={Pain3} />
+            <Stack.Screen name="Pain4" component={Pain4} />
+        </Stack.Navigator>
+    );
+}
 
 
 
@@ -104,17 +124,16 @@ const StackNavigator = ({ route }) => {
         });
 
     }, [])
-
+    //initialRouteName={authNavigate ? 'Login' : 'HomePage'}
 
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={authNavigate ? 'Login' : 'HomePage'}>
+        <Stack.Navigator screenOptions={{ headerShown: false, statusBarHidden: true }} /*initialRouteName='SignUp'*/>
             <Stack.Group>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="Pain" component={Pain} />
             </Stack.Group>
-
-
         </Stack.Navigator>
     )
 }
