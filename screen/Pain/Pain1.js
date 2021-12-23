@@ -12,16 +12,6 @@ import { Icon } from 'react-native-elements'
 
 const Pain1 = () => {
 
-    const app = initializeApp(firebaseConfig);
-
-    const db = getFirestore(app);
-    const GetData = async () => {
-        const citiesCol = collection(db, 'cities');
-        const citySnapshot = await getDocs(citiesCol);
-        const cityList = citySnapshot.docs.map(doc => doc.data());
-        console.log(cityList);
-    }
-
     //<Button title='sss' onPress={GetData} />
     const navigation = useNavigation();
     const [Trigger, setTrigger] = useState({
@@ -38,11 +28,6 @@ const Pain1 = () => {
     const [Sleep, setSleep] = useState(false);
     const [Exercises, setExercises] = useState(false);
     const [Food, setFood] = useState(false);
-
-    const log = () => {
-        console.log(Trigger);
-
-    }
 
 
 
@@ -193,7 +178,7 @@ const Pain1 = () => {
 
                 <TouchableOpacity
                     style={styles.yellowButton}
-                    onPress={log}
+                    onPress={PainNavigation}
                 >
                     <Text style={{ fontSize: 16, color: '#FFC542' }}>log</Text>
                 </TouchableOpacity>

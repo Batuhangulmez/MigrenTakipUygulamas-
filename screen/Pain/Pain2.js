@@ -6,7 +6,6 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, on
 import { image1 } from '../../assets/Pain1icon.png'
 
 const Pain2 = ({ route }) => {
-    console.log(route.params.Trigger)
     const [Data, setData] = useState({
         Area: ""
     })
@@ -20,33 +19,13 @@ const Pain2 = ({ route }) => {
 
     const navigation = useNavigation();
     const log = () => {
-        console.log(select1);
+        console.log(Data);
+
 
     }
-    const SelectArea = () => {
-        if (select1 == true) {
-            setData({ Area: "1" });
-        }
-        if (select2 == true) {
-            setData({ Area: "2" });
-        }
-        if (select3 == true) {
-            setData({ Area: "3" });
-        }
-        if (select4 == true) {
-            setData({ Area: "4" });
-        }
-        if (select5 == true) {
-            setData({ Area: "5" });
-        }
-        if (select6 == true) {
-            setData({ Area: "6" });
-        }
 
-    }
 
     const PainNavigation = () => {
-        SelectArea();
 
         navigation.navigate('Pain3', {
             Trigger: route.params.Trigger,
@@ -71,6 +50,7 @@ const Pain2 = ({ route }) => {
                             setSelect4(false)
                             setSelect5(false)
                             setSelect6(false)
+                            setData({ Area: "1" });
                         }} style={{
                             borderColor: select1 ? 'red' : 'white',
                             borderWidth: 2,
@@ -92,6 +72,8 @@ const Pain2 = ({ route }) => {
                             setSelect4(false)
                             setSelect5(false)
                             setSelect6(false)
+                            setData({ Area: "2" });
+
                         }} style={{
                             borderColor: select2 ? 'red' : 'white',
                             borderWidth: 2,
@@ -112,6 +94,7 @@ const Pain2 = ({ route }) => {
                             setSelect4(false)
                             setSelect5(false)
                             setSelect6(false)
+                            setData({ Area: "3" });
                         }} style={{
                             borderColor: select3 ? 'red' : 'white',
                             borderWidth: 2,
@@ -132,6 +115,7 @@ const Pain2 = ({ route }) => {
                             setSelect1(false)
                             setSelect5(false)
                             setSelect6(false)
+                            setData({ Area: "4" });
                         }} style={{
                             borderColor: select4 ? 'red' : 'white',
                             borderWidth: 2,
@@ -152,6 +136,7 @@ const Pain2 = ({ route }) => {
                             setSelect4(false)
                             setSelect1(false)
                             setSelect6(false)
+                            setData({ Area: "5" });
                         }} style={{
                             borderColor: select5 ? 'red' : 'white',
                             borderWidth: 2,
@@ -172,6 +157,7 @@ const Pain2 = ({ route }) => {
                             setSelect4(false)
                             setSelect5(false)
                             setSelect1(false)
+                            setData({ Area: "6" });
                         }} style={{
                             borderColor: select6 ? 'red' : 'white',
                             borderWidth: 2,
@@ -190,7 +176,9 @@ const Pain2 = ({ route }) => {
 
                 <TouchableOpacity
                     style={styles.yellowButton}
-                    onPress={PainNavigation}
+                    onPress={() => {
+                        PainNavigation()
+                    }}
                 >
                     <Text style={{ fontSize: 16, color: '#FFC542' }}>Devam Et </Text>
                 </TouchableOpacity>
