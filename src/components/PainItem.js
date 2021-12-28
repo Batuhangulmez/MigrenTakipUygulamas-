@@ -8,7 +8,11 @@ const PainItem = (props) => {
         Force: props.props.Force,
         Trigger: props.props.Trigger,
     }
-    console.log(Data.Trigger);
+
+    useEffect(() => {
+        TriggerItem(Data.Trigger)
+
+    }, [])
     const ForceItem = (item) => {
         if (item == 1) {
             return <Text style={styles.ForceItemText123}>01</Text>
@@ -64,7 +68,6 @@ const PainItem = (props) => {
     }
 
     const [TriggerItemArray, setTriggerItemArray] = useState([])
-
     const TriggerItem = (item) => {
         if (item.Coffee == true) { TriggerItemArray.push("Kafein") }
         if (item.Beer == true) { TriggerItemArray.push("Alkol") }
@@ -72,7 +75,6 @@ const PainItem = (props) => {
         if (item.Food == true) { TriggerItemArray.push("Yemek") }
         if (item.Sleep == true) { TriggerItemArray.push("Uyku") }
         if (item.Stress == true) { TriggerItemArray.push("Stres") }
-
     }
 
 
@@ -88,7 +90,6 @@ const PainItem = (props) => {
             <View style={styles.PainItemTrigger}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', }}>
                     {
-                        TriggerItem(Data.Trigger),
                         TriggerItemArray.map((item) => {
                             return <Text style={{ justifyContent: 'center', margin: 5, color: '#FFFFFF' }}>{item}</Text>
                         })

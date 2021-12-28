@@ -53,7 +53,6 @@ const Pain4 = ({ route }) => {
     }
 
 
-
     return (
         <View style={styles.container}>
             <View style={styles.wrapper}>
