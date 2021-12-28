@@ -10,7 +10,6 @@ const PainItem = (props) => {
     }
 
     useEffect(() => {
-        TriggerItem(Data.Trigger)
 
     }, [])
     const ForceItem = (item) => {

@@ -18,14 +18,19 @@ const Calender = (route) => {
     const app = initializeApp(firebaseConfig);
     const currentUid = getAuth().currentUser.uid
     const db = getFirestore(app);
+    const [ControlData, setControlData] = useState(false)
 
     const [FbData, setFbData] = useState({})
+    const loading = () => {
+        return ControlData ? <PainItem props={FbData.PainList[0].Data} /> : <View><Text>Loading</Text></View>
+    }
 
     const GetData = async () => {
         const PainCol = collection(db, currentUid);
         const PainSnapshot = await getDocs(PainCol);
         const PainList = PainSnapshot.docs.map(doc => doc.data());
         setFbData({ PainList })
+        setControlData(true)
         // <PainItem props={FbData.PainList[0].Data} />
     }
     // <PainItem props={PainList[0].Data} />
@@ -34,7 +39,9 @@ const Calender = (route) => {
         <View style={styles.container}>
             <View style={styles.wrapper}>
                 <View style={{ justifyContent: 'center' }}>
-
+                    {
+                        loading()
+                    }
 
                 </View>
             </View>

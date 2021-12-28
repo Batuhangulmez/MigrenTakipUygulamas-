@@ -35,6 +35,7 @@ const Pain1 = () => {
 
 
     const PainNavigation = () => {
+
         navigation.navigate('Pain2', {
             Trigger: Trigger,
         })
