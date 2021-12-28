@@ -24,11 +24,22 @@ const Pain2 = ({ route }) => {
 
     }
 
+    const [TriggerItemArray, setTriggerItemArray] = useState([])
+    const TriggerItem = (item) => {
+        if (item.Coffee == true) { TriggerItemArray.push("Kafein") }
+        if (item.Beer == true) { TriggerItemArray.push("Alkol") }
+        if (item.Exercises == true) { TriggerItemArray.push("Egzersiz") }
+        if (item.Food == true) { TriggerItemArray.push("Yemek") }
+        if (item.Sleep == true) { TriggerItemArray.push("Uyku") }
+        if (item.Stress == true) { TriggerItemArray.push("Stres") }
+    }
+
 
     const PainNavigation = () => {
+        TriggerItem(route.params.Trigger)
 
         navigation.navigate('Pain3', {
-            Trigger: route.params.Trigger,
+            Trigger: TriggerItemArray,
             Area: Data.Area
         })
     }

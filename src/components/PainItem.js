@@ -3,16 +3,16 @@ import { View, Text, SafeAreaView, Button, TouchableOpacity, Image } from 'react
 import { styles } from '../../src/styles'
 
 const PainItem = (props) => {
+
     const Data = {
         Area: props.props.Area,
         Force: props.props.Force,
-        Trigger: props.props.Trigger,
+        Trigger: [],
     }
+    Data.Trigger.push(props.props.Trigger),
+        useEffect(() => {
 
-    useEffect(() => {
-        TriggerItem(Data.Trigger)
-
-    }, [])
+        }, [Data.Trigger])
     const ForceItem = (item) => {
         if (item == 1) {
             return <Text style={styles.ForceItemText123}>01</Text>
@@ -67,16 +67,16 @@ const PainItem = (props) => {
         }
     }
 
-    const [TriggerItemArray, setTriggerItemArray] = useState([])
-    const TriggerItem = (item) => {
-        if (item.Coffee == true) { TriggerItemArray.push("Kafein") }
-        if (item.Beer == true) { TriggerItemArray.push("Alkol") }
-        if (item.Exercises == true) { TriggerItemArray.push("Egzersiz") }
-        if (item.Food == true) { TriggerItemArray.push("Yemek") }
-        if (item.Sleep == true) { TriggerItemArray.push("Uyku") }
-        if (item.Stress == true) { TriggerItemArray.push("Stres") }
-    }
-
+    /*  const [TriggerItemArray, setTriggerItemArray] = useState([])
+      const TriggerItem = (item) => {
+          if (item.Coffee == true) { TriggerItemArray.push("Kafein") }
+          if (item.Beer == true) { TriggerItemArray.push("Alkol") }
+          if (item.Exercises == true) { TriggerItemArray.push("Egzersiz") }
+          if (item.Food == true) { TriggerItemArray.push("Yemek") }
+          if (item.Sleep == true) { TriggerItemArray.push("Uyku") }
+          if (item.Stress == true) { TriggerItemArray.push("Stres") }
+      }
+  */
 
     return (
         <View style={styles.PainItemWrapper}>
@@ -90,7 +90,7 @@ const PainItem = (props) => {
             <View style={styles.PainItemTrigger}>
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', }}>
                     {
-                        TriggerItemArray.map((item) => {
+                        Data.Trigger[0].map((item) => {
                             return <Text style={{ justifyContent: 'center', margin: 5, color: '#FFFFFF' }}>{item}</Text>
                         })
                     }

@@ -8,6 +8,7 @@ const Pain3 = ({ route }) => {
     const [Data, setData] = useState({
         Force: 0
     })
+    console.log(route.params)
 
     const [One, setOne] = useState(false)
     const [Two, setTwo] = useState(false)

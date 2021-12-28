@@ -5,7 +5,7 @@ import { styles } from '../../src/styles'
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, onAuthStateChanged, Auth, updateProfile } from 'firebase/auth'
 import { firebaseConfig } from '../../firebase-config'
 import { initializeApp } from 'firebase/app'
-import { addDoc, collection, doc, getDocs, getFirestore, setDoc } from 'firebase/firestore/lite'
+import { addDoc, collection, doc, getDocs, getFirestore, serverTimestamp, setDoc, } from 'firebase/firestore/lite'
 import PainItem from '../../src/components/PainItem'
 
 
@@ -21,6 +21,7 @@ const Pain4 = ({ route }) => {
 
     const app = initializeApp(firebaseConfig);
     const currentUid = getAuth().currentUser.uid
+    const currentEmail = getAuth().currentUser.email
     const db = getFirestore(app);
 
     const GetKey = async () => {
@@ -41,13 +42,13 @@ const Pain4 = ({ route }) => {
 
     const navigation = useNavigation();
 
-
     const SetData = async () => {
+        let currentDate = new Date().toLocaleDateString();
         const key = (await GetKey()).valueOf();
 
         await setDoc(doc(db, currentUid, `${key}`), {
             key: key,
-            Data
+            Data,
         });
         navigation.navigate('HomePage')
     }
